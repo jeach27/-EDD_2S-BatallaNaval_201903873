@@ -1,8 +1,9 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include <json/json.h>
-#include <jsoncpp.cpp>
+#include "jsoncpp.cpp"
+#include "json/json.h"
+
 
 
 
@@ -69,15 +70,33 @@ void cargarArchivo(){
     for (int i = 0; i < users.size(); i++)
     {
         cout << " usuario: " << users[i]["nick"].asString() << endl;
+        cout << " contrasenia: " << users[i]["password"].asString() <<endl;
+        cout << " moneda: " << users[i]["monedas"].asString() <<endl;
+        cout << " edad: " << users[i]["edad"].asString() <<endl;
+    } 
+
+    const Json::Value& articulos = actualJson["articulos"];
+    for (int i = 0; i < articulos.size(); i++)
+    {
+        cout << " id: " << articulos[i]["id"].asString() << endl;
+        cout << " categoria: " << articulos[i]["categoria"].asString() <<endl;
+        cout << " precio: " << articulos[i]["precio"].asString() <<endl;
+        cout << " nombre: " << articulos[i]["nombre"].asString() <<endl;
+        cout << " src: " << articulos[i]["src"].asString() <<endl;
     }
-    
-        
 
+    const Json::Value& tutorial = actualJson["tutorial"];
+    cout << " ancho: " << tutorial["ancho"].asString() << endl;
+    cout << " alto: " << tutorial["alto"].asString() <<endl;
+    const Json::Value& mov = tutorial["movimientos"];
+    for (int j = 0; j < mov.size(); j++)
+    {
+        cout << " X " << mov[j]["x"].asString() << endl;
+        cout << " Y: " << mov[j]["y"].asString() <<endl;
+    }
 
-        
-
-    
     
 }
 
 /*-------------JEACH------------ */ 
+//D:\Quincho\VIII_Semestre\EDD\Laboratorio\ArchivoPruebaFase1A.json
